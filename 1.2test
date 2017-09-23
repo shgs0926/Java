@@ -1,0 +1,40 @@
+public class Test {
+    public void rotateArray(int n){
+        int[][] array = new int[n][n];
+        if(n%2!=0){
+            array[n/2][n/2] = n*n;
+        }
+        int top = -1;
+        int bottom = n;
+        int left = -1;
+        int right = n;
+        int value = 1;
+        while(left<right&&top<bottom){
+            top++;
+            left++;
+            bottom--;
+            right--;
+            int x = left;
+            int y = top;
+            while(y<bottom){
+                array[y++][x] = value++;
+            }
+            while (x<right) {
+                array[y][x++] = value++;
+            }
+            while(y>top){
+                array[y--][x]=value++;
+            }
+            while(x>left){
+                array[y][x--]=value++;
+            }
+        }
+        for (int[] row:array){
+            for(int count:row){
+                System.out.print(count+"   ");
+            }
+            System.out.println();
+        }
+    }
+    
+}

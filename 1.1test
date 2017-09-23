@@ -1,0 +1,9 @@
+public class Test {
+    public void compute(int n){
+        System.out.println(n);
+        if(n<5000){
+            compute(n*2);
+        }
+        System.out.println(n);
+    }
+}
